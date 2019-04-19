@@ -21,6 +21,8 @@ public class PassingBehaviourUsingInterface {
 			}
 			
 		});
+		
+		//PassingBehaviourUsingInterface.printCondtionally(people, p1->p1.getFirstName().startsWith("v"));
 
 	}
 	

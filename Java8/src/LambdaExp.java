@@ -19,6 +19,9 @@ public class LambdaExp  {
 		
 		System.out.println(s1.say("varun"));
 		
+		Sayable s2=name->name;
+		System.out.println(s2.say("aru"));
+		
 		List<Integer> l=new ArrayList();
 		l.add(6);
 		l.add(9);

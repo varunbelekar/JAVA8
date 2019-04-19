@@ -22,6 +22,7 @@ public class ConsumerInterface {
 		Consumer<String> c=ConsumerInterface::message;
 		c.accept("varun");
 		
+		
 		Consumer<Integer> c1=ConsumerInterface::print;
 		c1.accept(5);
 		
