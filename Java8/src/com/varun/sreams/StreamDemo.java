@@ -17,10 +17,11 @@ public class StreamDemo {
 		}
 		System.out.println();
 		//Using Streams
-		int b[]=IntStream.rangeClosed(-50, -1).toArray();
+		int b[]=IntStream.rangeClosed(1, 50).toArray();
 		for(int i : b){
 			System.out.print(i+" ");
 		}
+		
 	}
 
 }

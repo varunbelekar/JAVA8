@@ -1,5 +1,7 @@
 package com.varun.sreams;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
@@ -15,22 +17,21 @@ public class StreamExercise {
         // CONDITIONS -
         // do not collect the stream in anything else than what's asked
         // i.e. no intermediate collection
-        //System.out.println(input.count());
-        //Stream.concat(Stream.of("("), input);
-        Supplier<Stream<String>> supp=()->input;
-        //System.out.println(supp.get().count());
         
-        Stream<String> newStream=Stream.concat(Stream.of("("), supp.get());
-        newStream=Stream.concat(newStream, Stream.of(")"));
-        
-        newStream.forEach(p->System.out.print(p+"|"));
-        		
-        
-        
-        
-        
-        
+       List<String> list = generateTestData();
+       Supplier<Stream<String>> supp = ()->list.stream();
+       
+       supp.get().forEach(p->System.out.print(p+"|"));
+       System.out.println();
+       supp.get().forEach(p->System.out.print(p+"|"));
+       
+       System.out.println(supp.get().count());
  }
+	
+public static List<String> generateTestData(){
+	List<String> list = Arrays.asList("varun","arindam","vinita","pradyot","kanchan");
+	return list;
+}
 
  private static Stream<String> testData() {
         
