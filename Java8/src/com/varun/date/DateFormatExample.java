@@ -1,6 +1,7 @@
 package com.varun.date;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateFormatExample {
@@ -11,6 +12,12 @@ public class DateFormatExample {
 		System.out.println(d.toString());
 		String format=DateFormat.getInstance().format(d);
 		System.out.println(format);
+		
+		Date date = new Date();
+		SimpleDateFormat sd = new SimpleDateFormat("dd-MM-yyyy");
+		System.out.println(sd.format(date));
+		
+		
 	}
 
 }
