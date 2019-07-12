@@ -1,11 +1,12 @@
 package com.varun.test;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 class Node {
 	int data;
 	Node next;
-	
+
 	@Override
 	public String toString() {
 		return String.format("%d -> %s", data, next);
@@ -13,35 +14,52 @@ class Node {
 }
 
 public class MergerPointLinkedList {
-	
-	public static Node createLinkedList(){
-		Scanner sc = new Scanner(System.in);
-		int n = 5;//No of elements
-		Node root = null,p = null,q = null;
-		for (int i = 0; i < n; i++) {
-			int value = sc.nextInt();
-			q = new Node();
-			q.data = value;
-			q.next = null;
+
+	public static void findMergePoint(Node head1, Node head2) {
+		Node head1b = head1;
+		Node head2b = head2;
+		
+		while(head1.next != null){
 			
-			if(root == null){
+			while(head2.next != null){
+				
+			}
+		}
+	}
+
+	public static Node createLinkedListFromArray(int[] list) {
+		Node root = null, p = null, q = null;
+		// Creating List1
+		for (int i = 0; i < list.length; i++) {
+			q = new Node();
+			q.data = list[i];
+			q.next = null;
+
+			if (root == null) {
 				root = q;
 				p = q;
-			}
-			else{
+			} else {
 				p.next = q;
 				p = q;
 			}
 		}
-		
-		p = root;
-		return p;
+		return root;
+	}
+
+	public static void createLinkedList() {
+		int list1[] = {1,2,3}; 
+		int list2[] = {1,3 };
+
+		Node root1 = createLinkedListFromArray(list1);
+		Node root2 = createLinkedListFromArray(list2);
+
+		System.out.println(root1.toString());
+		System.out.println(root2.toString());
+
+		findMergePoint(root1, root2);
 	}
 
 	public static void main(String[] args) {
-		
-		Node p = createLinkedList();
-		System.out.println(p);
-		
+		createLinkedList();
 	}
 }
