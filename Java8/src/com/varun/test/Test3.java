@@ -1,31 +1,28 @@
 package com.varun.test;
 
-import java.util.Arrays;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Test3 {
 	
-	public static int[] getMultipliedArray(int a[],int fact){
-		for (int i = 0; i < a.length; i++) {
-			a[i] = fact/a[i];
-		}		
-		return a;
+	public static void method1(){
+		System.out.println("Method 1");
+	}
+	public static void method2(){
+		System.out.println("Method 2");
 	}
 	
-	public static int factorial(int a[]){
-		int mul=1;
-		for (int i = 0; i < a.length; i++) {
-			mul *= a[i];
-		}
-		return mul;
-	}
-	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		// TODO Auto-generated method stub
-		int[] a={1,2,3,4,5};
-		int[] b=getMultipliedArray(a , factorial(a));
+		String fromDate = "05/2019";
+		fromDate = fromDate.replace('/', '.');
+		SimpleDateFormat format = new SimpleDateFormat("MM.yyyy");
 		
-		//System.out.println(factorial(a));
-		System.out.println(Arrays.toString(b));
+		Date from = format.parse(fromDate);
+		System.out.println(from.toString());
+		System.out.println("Year:" + from.getYear());
+		System.out.println("Month: " + from.toString().split(" ")[1]);
 	}
-
 }
