@@ -9,6 +9,7 @@ public class Test3 {
 	
 	public static void method1(){
 		System.out.println("Method 1");
+		System.out.println("Updating method 1");
 	}
 	public static void method2(){
 		System.out.println("Method 2");
