@@ -9,9 +9,11 @@ public class Test3 {
 	
 	public static void method1(){
 		System.out.println("Method 1");
+		System.out.println("Updating method 1");
 	}
 	public static void method2(){
 		System.out.println("Method 2");
+		System.out.println("Updateing method 2");
 	}
 	
 	public static void main(String[] args) throws ParseException {
