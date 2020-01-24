@@ -22,7 +22,9 @@ class P1 extends Person{
 
 interface Animal{
 	public void eat();
-	public void run();
+	default  void run(){
+		
+	};
 }
 
 public class AnonymousClass {
@@ -56,6 +58,9 @@ public class AnonymousClass {
 			}
 		};
 		a.run();
+		
+		Animal a1 = () -> System.out.println("Animal a1 is eating"); 
+		a1.eat();
 		
 		Integer localVariable1 = 10;
 	    Integer localVariable2 = 10;

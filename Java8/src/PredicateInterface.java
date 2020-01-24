@@ -11,9 +11,8 @@ public class PredicateInterface {
 		Predicate<Integer> p=PredicateInterface::checkAge;
 		System.out.println(p.test(19));
 		
-		/*Predicate<Integer> predicate=p -> p>18;
-		System.out.println(predicate.test(10));
-		*/
+		Predicate<Integer> p1 = p2 -> p2 > 18;
+		System.out.println(p1.test(18));
 	}
 
 }

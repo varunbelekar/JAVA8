@@ -1,5 +1,8 @@
 package com.varun.interfaces;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Demo {
 	
 	 public static void greeting(Greeting g){
@@ -15,6 +18,7 @@ public class Demo {
 		
 		Add addLambda=(int a,int b)->a+b;
 		System.out.println(addLambda.add(5, 12));
+		List<String> list = new ArrayList<String>();
 		
 	}
 

@@ -10,6 +10,7 @@ public class LocaleDemo {
 		System.out.println(locale.getCountry());
 		System.out.println(fr.getDisplayCountry());
 		System.out.println(fr.getLanguage());
+		System.out.println("Locale " + locale.toString());
 	}
 	
 	public static void printEnglishInDiffLang(){

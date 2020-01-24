@@ -22,7 +22,8 @@ public class PassingBehaviourUsingInterface {
 			
 		});
 		
-		//PassingBehaviourUsingInterface.printCondtionally(people, p1->p1.getFirstName().startsWith("v"));
+		//Can be done alternatively using Lambda Expressions.
+		PassingBehaviourUsingInterface.printCondtionally(people, p -> p.getFirstName().startsWith("i"));
 
 	}
 	

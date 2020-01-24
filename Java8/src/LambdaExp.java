@@ -4,43 +4,45 @@ import java.util.List;
 
 import com.varun.interfaces.Demo;
 
-interface Sayable{
+interface Sayable {
 	public String say(String name);
 }
 
-
-public class LambdaExp  {
+public class LambdaExp {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Sayable s1=(name)->{
-			return "Hello "+name;
+		
+		Sayable s1 = (name) -> {
+			return "Hello " + name;
 		};
-		
+
 		System.out.println(s1.say("varun"));
-		
-		Sayable s2=name->name;
+
+		Sayable s2 = name -> name;
 		System.out.println(s2.say("aru"));
-		
-		List<Integer> l=new ArrayList();
+
+		Sayable s3 = s -> "Hello" + s;
+		System.out.println(s3.say("anu"));
+
+		List<Integer> l = new ArrayList();
 		l.add(6);
 		l.add(9);
 		l.add(4);
-		
-		//Sorting Collections Using Lambda Expressions
-		Collections.sort(l,(a1,a2)->{
-			if(a1<a2){
+
+		// Sorting Collections Using Lambda Expressions
+		Collections.sort(l, (a1, a2) -> {
+			if (a1 < a2) {
 				return -1;
-			}
-			else{
+			} else {
 				return 1;
 			}
 		});
-		
-		for(int i:l){
+
+		for (int i : l) {
 			System.out.println(i);
 		}
-		
+
 	}
 
 }

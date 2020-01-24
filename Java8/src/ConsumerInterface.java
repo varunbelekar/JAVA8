@@ -22,6 +22,8 @@ public class ConsumerInterface {
 		Consumer<String> c=ConsumerInterface::message;
 		c.accept("varun");
 		
+		Consumer<String> c3 = s -> System.out.println("Hello "+s);
+		c3.accept("aru");
 		
 		Consumer<Integer> c1=ConsumerInterface::print;
 		c1.accept(5);

@@ -27,6 +27,9 @@ public class FunctionInterface {
 		Function<List<Integer>,Integer> fun=FunctionInterface::addList;
 		System.out.println(fun.apply(l));
 		
+		Function<String,String> f1 = name -> "varun "+name;
+		System.out.println(f1.apply("aru"));
+		
 	}
 
 }
