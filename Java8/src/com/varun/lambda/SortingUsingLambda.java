@@ -23,12 +23,11 @@ public class SortingUsingLambda {
 		}
 		
 		System.out.println("Sorting");
-		Collections.sort(list,Comparator.comparingInt(Person::getId)
-				.thenComparing(Person::getFirstName)
-				);
-		for(Person p : list){
-			System.out.println(p.toString());
-		}
+		list.sort(Comparator.comparing(Person::getId)
+			.thenComparing(Comparator.comparing(Person::getFirstName))
+			.thenComparing(Comparator.comparing(Person::getLastName)));
+		
+		list.forEach(System.out::println);
 		
 		
 		
