@@ -9,9 +9,7 @@ import java.util.stream.Collectors;
 
 public class FpStreamsLambdas {
 	public static void lambdasStreams() {
-		Map<String, List<String>> phoneDirectory = new HashMap<>();
-		phoneDirectory.put("varun belekar", Arrays.asList("9999", "77384"));
-		phoneDirectory.put("atok", Arrays.asList("343", "234"));
+		Map<String, List<String>> phoneDirectory = fillPhoneDirectory();
 
 		phoneDirectory.entrySet().stream().filter(entry -> entry.getKey().contains("varun")).forEach(entry -> {
 			System.out.println("Name:  " + entry.getKey());
@@ -22,6 +20,13 @@ public class FpStreamsLambdas {
 		Map<String, List<String>> filteredNumbers = phoneDirectory.entrySet().stream()
 				.filter(entry -> entry.getKey().contains("varun"))
 				.collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue()));
+	}
+
+	private static Map<String, List<String>> fillPhoneDirectory() {
+		Map<String, List<String>> phoneDirectory = new HashMap<>();
+		phoneDirectory.put("varun belekar", Arrays.asList("9999", "77384"));
+		phoneDirectory.put("atok", Arrays.asList("343", "234"));
+		return phoneDirectory;
 	}
 
 	public static void sortingUsingLambda() {
