@@ -7,16 +7,18 @@ import java.util.Map;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
 import java.util.function.BiConsumer;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import com.varun.model.Person;
 
 public class StreamOperations {
-	static Person[] personArray = new Person[2];
+	static Person[] personArray = new Person[3];
 	static {
-		 personArray[0] = new Person(7, "varun", "bel");
-		 personArray[1] = new Person(8, "vini", "pal"); 		
+		 personArray[0] = new Person(7, "Varun", "bel");
+		 personArray[1] = new Person(8, "Aini", "pal"); 
+		 personArray[2] = new Person(9, "Vini", "pal"); 
 	}
 	
 	public static void IntStreams(){
@@ -35,6 +37,24 @@ public class StreamOperations {
 		Map<Boolean, List<Integer>> map = 
 		 intList.stream()
 				.collect(Collectors.partitioningBy(number -> number % 2 == 0));
+		printMap(map);
+		
+	}
+	
+	public static void groupByStreams(){
+		List<Person> personList = Arrays.asList(personArray);
+		Map<Character, List<Person>> map = personList.stream()
+				.collect(Collectors.groupingBy(groupByFirstCharacterOfFirstName()));
+		printMap(map);
+		
+		Map<Character, List<Integer>> map1 = personList.stream().collect(Collectors.groupingBy(
+				groupByFirstCharacterOfFirstName(), Collectors.mapping(Person::getId, Collectors.toList())));
+		
+		printMap(map1);
+	}
+
+	private static Function<? super Person, ? extends Character> groupByFirstCharacterOfFirstName() {
+		return person -> new Character(person.getFirstName().charAt(0));
 	}
 	
 	public static void specialOperations(){
@@ -44,6 +64,13 @@ public class StreamOperations {
 				  .average();
 		System.out.println(averageId.getAsDouble());
 	}
+	
+	public static <T, U> void printMap(Map<T, U> map){
+		map.forEach((key, value) -> {
+			System.out.println(key + " " + value);
+		});
+	}
+	
 	
 	public static void streamPeek(){
 		List<Person> personList = Arrays.asList(personArray);
@@ -71,6 +98,8 @@ public class StreamOperations {
 		//flatMapDemo();
 		//streamPeek();
 		//IntStreams();
-		specialOperations();
+		//specialOperations();
+		groupByStreams();
+		//partitionStreams();
 	}
 }
