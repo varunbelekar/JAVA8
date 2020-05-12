@@ -2,13 +2,11 @@ package com.varun.sreams;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
+import java.util.Map;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
-import java.util.function.Supplier;
+import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -32,6 +30,13 @@ public class StreamOperations {
 		System.out.println(max);
 	}
 	
+	public static void partitionStreams(){
+	    List<Integer> intList = Arrays.asList(2, 4, 5, 6, 8);
+		Map<Boolean, List<Integer>> map = 
+		 intList.stream()
+				.collect(Collectors.partitioningBy(number -> number % 2 == 0));
+	}
+	
 	public static void specialOperations(){
 		List<Person> personList = Arrays.asList(personArray);
 		OptionalDouble averageId = personList.stream()
@@ -46,6 +51,7 @@ public class StreamOperations {
 				  .peek(System.out::println)
 				  .peek(person -> person.setId(99))
 				  .forEach(System.out::println);
+		
 		
 	}
 	
