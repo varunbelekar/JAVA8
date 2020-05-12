@@ -4,8 +4,13 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
+import java.util.OptionalDouble;
+import java.util.OptionalInt;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import com.varun.model.Person;
 
@@ -19,9 +24,20 @@ public class StreamOperations {
 	public static void IntStreams(){
 		List<Person> personList = Arrays.asList(personArray);
 		personList.stream()
-				  .peek(person -> person.setId(person.getId() * 2))
 				  .mapToInt(Person::getId)
-				  .forEach(System.out::println);
+				  .max();
+		
+		OptionalInt max = IntStream.range(0, 5)
+				 				   .max();
+		System.out.println(max);
+	}
+	
+	public static void specialOperations(){
+		List<Person> personList = Arrays.asList(personArray);
+		OptionalDouble averageId = personList.stream()
+				  .mapToDouble(Person::getId)
+				  .average();
+		System.out.println(averageId.getAsDouble());
 	}
 	
 	public static void streamPeek(){
@@ -48,6 +64,7 @@ public class StreamOperations {
 	public static void main(String[] args) {
 		//flatMapDemo();
 		//streamPeek();
-		IntStreams();
+		//IntStreams();
+		specialOperations();
 	}
 }
