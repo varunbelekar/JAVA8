@@ -10,7 +10,7 @@ interface Add{
 }
 public class Test {
 	public static void main(String[] args){
-		Add addition = (x, y) -> x - y;
-		System.out.println(addition.add(5, 4));
+		String s = "UPPER(substr(role , 1 , 2) || task_info) AS Taskinfo,";
+		System.out.println(s.toUpperCase());
 	}
 }

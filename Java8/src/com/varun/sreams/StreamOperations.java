@@ -38,7 +38,6 @@ public class StreamOperations {
 		 intList.stream()
 				.collect(Collectors.partitioningBy(number -> number % 2 == 0));
 		printMap(map);
-		
 	}
 	
 	public static void groupByStreams(){

@@ -1,13 +1,13 @@
 package com.varun.model;
 
-public class Person {
-	private int id;
+public class Person implements Comparable<Person>{
+	private Integer id;
 	private String firstName;
 	private String lastName;
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getFirstName() {
@@ -31,6 +31,10 @@ public class Person {
 	@Override
 	public String toString() {
 		return "Person [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+	}
+	@Override
+	public int compareTo(Person o) {
+		return (this.getId() > o.getId())? 1 : -1;
 	}
 	
 	
