@@ -1,16 +1,20 @@
 package com.varun.functionalinterfaces;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.IntConsumer;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
+
+import javax.swing.GroupLayout.ParallelGroup;
 
 public class DriverClass {
 	
@@ -97,13 +101,31 @@ public class DriverClass {
 		System.out.println(map.computeIfAbsent("arun", String::length));
 	}
 	
-	
+	public static int countPrime(Integer[] a){
+		return (int)Stream.of(a)
+				  .parallel()
+				  .filter(i -> new BigInteger(String.valueOf(i)).isProbablePrime(1))
+				  .count();
+		 
+	}
 	public static void main(String[] args) {
 		//functionInterfaceInMap();
 		//functionInterface();
 		
 		//consumerInterface();
 		//supplierInterface();
-		predicateInterface();
+		//predicateInterface();
+		
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		for (int i = 0; i < t; i++) {
+			int n = sc.nextInt();
+			Integer[] a = new Integer[n];
+			for (int j = 0; j < a.length; j++) {
+				a[j] = sc.nextInt();
+			}
+			System.out.println(countPrime(a));
+		}
+        
 	}
 }
