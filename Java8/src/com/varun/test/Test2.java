@@ -1,34 +1,29 @@
 package com.varun.test;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
+
+interface PerformOperation {
+	 boolean check(int a);
+}
 public class Test2 {
 	
-	public static boolean checkSum(int a[],int k){
-		Set<Integer> set = new HashSet();
-		for(int i=0;i<a.length;i++){
-			set.add(a[i]);
-		}
-		
-		for(int i=0;i<a.length;i++){
-			if(set.contains(k-a[i])){
-				return true;
-			}
-		}
-		return false;
+	public static boolean isOdd(int x){
+	    return x % 2 != 0;
 	}
 	
-	
+	 
+	 public int reverse(int x) {
+		StringBuilder sb  = (x >= 0) ? new StringBuilder( Integer.toString(x)) : new StringBuilder( Integer.toString(x * -1));
+		String reverseNumberString = sb.reverse().toString();
+		Integer revNumber = new Integer(reverseNumberString);
+		return (x >= 0) ? revNumber.intValue() : revNumber.intValue() * -1;
+	  }
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int a[]={3,7,10,15};
-		int k = 13;
-		
-		
-		boolean b=checkSum(a, k);
-		System.out.println(b);
+		PerformOperation performOperation = Test2::isOdd;
+		System.out.println(performOperation.check(6));
 	}
 
 }
