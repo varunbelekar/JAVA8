@@ -16,7 +16,6 @@ public class FileOperations {
 			System.out.println("success");
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

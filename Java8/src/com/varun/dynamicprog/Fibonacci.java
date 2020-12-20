@@ -3,6 +3,17 @@ package com.varun.dynamicprog;
 import java.math.BigInteger;
 
 public class Fibonacci {
+	
+	
+	/**
+	 * Calculates the nth fibonacci number.
+	 * Runtime O(2^n)
+	 * Space Complexity O(n)
+	 * 
+	 * @param n  The nth fibonacci number to find
+	 * @return the nth fibonacci number
+	 * 
+	 */
 	public static int fibonacciWithoutDP(int n) {
 		if(n <= 2) {
 			return 1;
@@ -10,6 +21,15 @@ public class Fibonacci {
 		return fibonacciWithoutDP(n - 1) + fibonacciWithoutDP(n - 2);
 	}
 	
+	/**
+	 * Calculates the nth fibonacci number.
+	 * Runtime O(n)
+	 * Space Complexity O(n)
+	 * 
+	 * @param n
+	 * @param memo The memoised array to store the results.
+	 * @return
+	 */
 	public static int fibonacciWithDP(int n, int[] memo) {
 		if(n <= 2) {
 			return 1;
