@@ -8,7 +8,7 @@ import java.util.Map;
 public class HowSum {
 	/**
 	 * Time O(n^m * m)
-	 * Space O(m)
+	 * Space O(m ^ 2)
 	 * where n : arr.length(Numbers in array)
 	 * m : Target Sum
 	 * 
