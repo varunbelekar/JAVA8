@@ -41,8 +41,20 @@ public class Fibonacci {
 		return memo[n - 1];
 	}
 	
+	public static int fibonacciTabulation(int n){
+		int[] table = new int[n + 1];
+		table[1] = 1;
+		for (int i = 0; i < n; i++) {
+			table[i + 1] += table[i];
+			if(i < n - 1){
+				table[i + 2] += table[i];
+			}
+			
+		}
+		return table[n];
+	}
 
-    static BigInteger fibonacciModified(Integer t1, Integer t2, int n, BigInteger[] memo) {
+    public static BigInteger fibonacciModified(Integer t1, Integer t2, int n, BigInteger[] memo) {
         if(n == 1) {
             return BigInteger.valueOf(t1.intValue());
         }
@@ -57,8 +69,9 @@ public class Fibonacci {
     }
 	
 	public static void main(String[] args) {
-		System.out.println("Fibo without DP : " + fibonacciWithoutDP(50));
-		System.out.println("Fibo with DP : " + fibonacciWithDP(50, new int[50]));
+		//System.out.println("Fibo without DP : " + fibonacciWithoutDP(50));
+		System.out.println("Fibo with DP : " + fibonacciWithDP(8, new int[50]));
         System.out.println("Modified Fibo : " + fibonacciModified(0, 1, 20, new BigInteger[20]).toString());
+        System.out.println("Fibo without DP : " + fibonacciTabulation(8));
 	}
 }
