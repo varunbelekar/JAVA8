@@ -53,4 +53,11 @@ public class AdjacencyListGraph implements Graph{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public int depthOfGraph(int startNode, boolean[] visited) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
 }

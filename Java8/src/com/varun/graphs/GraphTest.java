@@ -40,6 +40,9 @@ public class GraphTest {
 		//Perform dfs search
 		System.out.println("Dfs search:");
 		graph.dfs(1, new boolean[4]);
+		
+		//Depth of graph from start node
+		System.out.println("Depth of graph: " + graph.depthOfGraph(0, new boolean[4]));
 	}
 
 	private static void createGraph(Graph graph) {

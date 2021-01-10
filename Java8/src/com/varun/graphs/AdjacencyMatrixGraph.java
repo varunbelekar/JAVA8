@@ -54,6 +54,18 @@ public class AdjacencyMatrixGraph implements Graph{
 		}
 	}
 	
+	@Override
+	public int depthOfGraph(int startNode, boolean[] visited) {
+		int depth = 0;
+		visited[startNode] = true;
+		for (int i = 0; i < adjacencyMatrix[startNode].length; i++) {
+			if(adjacencyMatrix[startNode][i] != 0 && ! visited[i]) {
+				depth = Math.max(depth,  depthOfGraph(i, visited));
+			}
+		}
+		return 1 + depth;
+	}
+	
 	
 	
 }

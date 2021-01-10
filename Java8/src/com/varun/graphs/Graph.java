@@ -12,4 +12,6 @@ public interface Graph {
 	Graph addEdge(int node1, int node2);
 	
 	void dfs(int startNode, boolean[] visited);
+	
+	int depthOfGraph(int startNode, boolean[] visited);
 }
