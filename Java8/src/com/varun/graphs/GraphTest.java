@@ -36,6 +36,10 @@ public class GraphTest {
 		//Get Adjacent nodes
 		System.out.println(graph.getAdjacentNodes(0));
 		System.out.println(graph.getAdjacentNodes(3));
+		
+		//Perform dfs search
+		System.out.println("Dfs search:");
+		graph.dfs(1, new boolean[4]);
 	}
 
 	private static void createGraph(Graph graph) {

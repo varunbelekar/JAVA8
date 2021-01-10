@@ -10,4 +10,6 @@ public interface Graph {
 	List<Integer> getAdjacentNodes(int node);
 	
 	Graph addEdge(int node1, int node2);
+	
+	void dfs(int startNode, boolean[] visited);
 }

@@ -2,7 +2,6 @@ package com.varun.graphs;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class AdjacencyMatrixGraph implements Graph{
 	
@@ -43,5 +42,18 @@ public class AdjacencyMatrixGraph implements Graph{
 		adjacencyMatrix[node1][node2] = 1;
 		return this;
 	}
+
+	@Override
+	public void dfs(int startNode, boolean[] visited) {
+		System.out.println(startNode);
+		visited[startNode] = true;
+		for (int i = 0; i < adjacencyMatrix[startNode].length; i++) {
+			if(adjacencyMatrix[startNode][i] != 0 && ! visited[i]) {
+				dfs(i, visited);
+			}
+		}
+	}
+	
+	
 	
 }

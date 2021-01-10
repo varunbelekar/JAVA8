@@ -47,5 +47,10 @@ public class AdjacencyListGraph implements Graph{
 		}
 		return this;
 	}
-	
+
+	@Override
+	public void dfs(int startNode, boolean[] visited) {
+		// TODO Auto-generated method stub
+		
+	}
 }
