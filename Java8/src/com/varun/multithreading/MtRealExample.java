@@ -37,7 +37,7 @@ public class MtRealExample{
 	public static void addElement(int[] a, Random r, int index){
 		try{
 			a[index] = r.nextInt();
-			Thread.sleep(1);
+			Thread.sleep(100);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

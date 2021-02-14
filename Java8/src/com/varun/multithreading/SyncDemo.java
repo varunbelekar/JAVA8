@@ -5,18 +5,24 @@ public class SyncDemo{
 	
 	public synchronized void increment(){
 		counter++;
+		System.out.println("Incremented counter : " + Thread.currentThread().getName());
+	}
+	
+	public synchronized void decrement() {
+		counter--;
+		System.out.println("Decremented counter : "  + Thread.currentThread().getName());
 	}
 	
 	public static void main(String[] args) throws InterruptedException{
 		SyncDemo obj = new SyncDemo();
 		
 		Thread t1 = new Thread(() -> {
-			for(int i = 0; i < 1000; i++){
+			for(int i = 0; i < 100; i++){
 				obj.increment();
 			}
 		});
 		Thread t2 = new Thread(() -> {
-			for(int i = 0; i < 1000; i++){
+			for(int i = 0; i < 100; i++){
 				obj.increment();
 			}
 		});
