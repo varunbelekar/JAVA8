@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.stream.Collectors;
 
 public class CallableFuture {
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
@@ -18,14 +19,24 @@ public class CallableFuture {
 				Thread.sleep(1000);
 				return new Random().nextInt(100);
 			});
-		futures.add(integerFuture);
+			futures.add(integerFuture);
 		}
-		for (Future<Integer> future : futures) {
-			System.out.println(future.get());
-		}
+		List<Integer> list = futures.stream()
+									.map(CallableFuture::getFutureInteger)
+									.collect(Collectors.toList());
+		System.out.println(list);
 		long endTime = System.currentTimeMillis();
 		System.out.println("Time for execution : " + (endTime - startTime));
 		
 		executorService.shutdown();
+	}
+	
+	public static Integer getFutureInteger(Future<Integer> future){
+		try{
+			return future.get();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return 0;
 	}
 }
